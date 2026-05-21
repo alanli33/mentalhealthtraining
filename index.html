@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal: Phased Mental Health Training Initiative (2026)</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --secondary: #0d9488;
+            --secondary-light: #f0fdfa;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --text-muted: #64748b;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        /* Language Toggle Button */
+        .lang-toggle {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+        }
+
+        .lang-toggle:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-left: 4px solid var(--secondary);
+            padding-left: 15px;
+            margin-top: 40px;
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-top: 25px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border);
+            margin: 40px 0;
+        }
+
+        /* Tabs Styling */
+        .tabs-container {
+            margin: 30px 0;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--light);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Grid Layouts for Core Business */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .business-card {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .business-card strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .gov-endorsements {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: var(--primary-light);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .gov-endorsements strong {
+            color: var(--primary);
+        }
+
+        .website-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .website-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Highlight Boxes */
+        .badge-box {
+            background-color: var(--secondary-light);
+            border: 1px solid #ccfbf1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .location-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Clean Price Formatting */
+        .price-highlight {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .price-status {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-left: 8px;
+        }
+
+        /* Buttons Styling */
+        .footer-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            padding: 14px 40px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .lang-toggle {
+                top: 15px;
+                right: 15px;
+            }
+            header {
+                padding-top: 40px;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button id="lang-toggle-btn" class="lang-toggle" onclick="toggleLanguage()">🌐 中文版</button>
+
+    <div id="content-en">
+        <header>
+            <span class="subtitle">Strategic Framework</span>
+            <h1>Mental Health Training Initiative (2026)</h1>
+        </header>
+
+        <section>
+            <h2>📋 Executive Overview</h2>
+            <p>This proposal presents a phased roll-out strategy for our upcoming mental health training initiatives. By structuring the deployment into two distinct operational stages, we minimize initial market risk while building up to a scaled, high-exposure international program.</p>
+            <ul>
+                <li><strong>Stage 1 (Test Market):</strong> A hyper-targeted internal launch focusing on the GOLD community to validate operational mechanics and local reception.</li>
+                <li><strong>Stage 2 (International Exposure):</strong> A scaled, public-facing medical program leveraging dual-institution prestige across the Greater Bay Area.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section class="tabs-container">
+            <h2>👥 About Us</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Click on the tabs below to view the background profiles and core businesses:</p>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'gbah-en', 'en')">GBA Healthcare Group (GBAH)</button>
+                <button class="tab-btn" onclick="openTab(event, 'arc-en', 'en')">The GBA Family Medicine Accreditation and Research Center (Shenzhen) (GBA-FM-ARC)</button>
+            </div>
+
+            <div id="gbah-en" class="tab-content en-tab-content active">
+                <p>Established in 2014 in Hong Kong, the GBA Healthcare Group (GBAH) is a leading mission-driven, value-based healthcare organization operating under Chow Tai Fook Enterprises Limited. Pioneering public-private partnerships (PPP) across the Greater Bay Area, GBAH operates an extensive network of clinics and healthcare service centers integrated within top-tier public hospitals.</p>
+                
+                <h3>🛠️ Core Business Segments</h3>
+                <div class="business-grid">
+                    <div class="business-card">
+                        <strong>International Primary Care Training</strong>
+                        Delivers standard-setting primary care training and accreditation to over 4,000 GOLD™-certified family physicians and nurses.
+                    </div>
+                    <div class="business-card">
+                        <strong>Cross-Border Insurance Link</strong>
+                        Partners with over 10 leading insurance companies (e.g., AIA, AXA, Manulife) to provide outpatient direct settlement services.
+                    </div>
+                    <div class="business-card">
+                        <strong>Value-Based Ecosystems</strong>
+                        Provides high-net-worth families with customizable wellness plans under a premium shared service matrix.
+                    </div>
+                </div>
+
+                <a href="https://www.gbahealthcare.com.hk/" target="_blank" class="website-link">🌐 Visit Official Website (GBAH) →</a>
+            </div>
+
+            <div id="arc-en" class="tab-content en-tab-content">
+                <p><strong>The GBA Family Medicine Accreditation and Research Center (Shenzhen) (GBA-FM-ARC)</strong> (深圳市粤港澳大湾区联合家庭医学评审评价研究中心) is an official non-profit social organization (NPO) registered with the Shenzhen Civil Affairs Bureau, operating under the direct professional supervision of the Health Commission of Shenzhen Municipality. As a breakthrough infrastructure connecting rules across borders, it is the first mainland NPO organization to formally integrate multiple Hong Kong medical experts within its Board of Directors.</p>
+                
+                <h3>🛠️ Core Business Segments</h3>
+                <div class="business-grid">
+                    <div class="business-card">
+                        <strong>Standard Formulation</strong>
+                        Conducts research and universal promotion of family medicine assessment parameters tailored to international standards.
+                    </div>
+                    <div class="business-card">
+                        <strong>Quality Optimization</strong>
+                        Appraises baseline capabilities and renders structural consulting matrixes for healthcare centers across the district.
+                    </div>
+                    <div class="business-card">
+                        <strong>Global Integration</strong>
+                        Coordinates structural collaborations with Wonca and the International Society for Quality in Health Care (ISQua).
+                    </div>
+                </div>
+
+                <div class="gov-endorsements">
+                    <strong>👑 High-Level Government Background & Endorsements:</strong><br>
+                    The center is established with extensive institutional backing and formal endorsements from premier regulatory bodies across both jurisdictions:
+                    <ul>
+                        <li>Liaison Office of the Central People’s Government in the Hong Kong Special Administrative Region (LOCPG)</li>
+                        <li>Health Commission of Guangdong Province</li>
+                        <li>Guangdong Provincial Development and Reform Commission</li>
+                        <li>Health Commission of Shenzhen Municipality</li>
+                        <li>Shenzhen Bao’an District Health Bureau</li>
+                        <li>Shenzhen Qianhai Authority</li>
+                    </ul>
+                </div>
+                <a href="https://www.fm-arc.com/index-1.html#" target="_blank" class="website-link">🌐 Visit Official Website (GBA-FM-ARC) →</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🚀 Stage 1: The "Test Market" Initiative</h2>
+            <p>This initial stage serves as a controlled pilot program designed to establish operational benchmarks, gather direct community feedback, and test the localized delivery format.</p>
+
+            <h3>📊 Operational Blueprint</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Specifications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Course Topic</strong></td>
+                        <td>Emotional Health Pioneer Gatekeeper Training Workshop</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hosting Entity</strong></td>
+                        <td>GBA Healthcare Group (GBAH)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Target Audience</strong></td>
+                        <td><strong>Strictly Private</strong> – Exclusively restricted to the internal GOLD community</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cohort Size</strong></td>
+                        <td>Limited to 20 trainees to optimize interactive dynamics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Timeline</strong></td>
+                        <td>Expected Launch: <strong>July / August 2026</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course Duration</strong></td>
+                        <td>1-Day Intensive Workshop</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>📍 Venue Details</h3>
+            <p>The pilot section will be hosted completely on-site at our corporate hub:</p>
+            <div class="location-box">
+                <strong>Shenzhen GBAH Corporate Headquarters</strong><br>
+                5702-03, 57/F, Block 1, Excellence Century Centre, No. 2030 Jintian Road, Futian District, Shenzhen, Guangdong, China
+            </div>
+
+            <h3>💳 Investment Structure</h3>
+            <p>
+                <strong>Flat Rate:</strong> 
+                <span class="price-highlight">To be discussed</span>
+            </p>
+
+            <h3>🏅 Certification & Recognition</h3>
+            <div class="badge-box">
+                <ul>
+                    <li><strong>Credentialing Authority:</strong> Official Certificate of Competency issued directly by the Mental Wellness Association and The Alpha Wellbeing Centre.</li>
+                    <li><strong>Pioneer Designation:</strong> Graduates will also be awarded an exclusive, physical Pioneer Badge symbolizing their certified gatekeeper status within the GOLD network.</li>
+                </ul>
+            </div>
+            <p style="font-style: italic; color: var(--text-muted);">🔄 <strong>Scalability Clause:</strong> Upon successful completion and positive feedback evaluation from this pilot group, this framework is designed to be replicated into multiple consecutive sections throughout the fiscal year.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🌐 Stage 2: Scaled International Exposure</h2>
+            <p>Leveraging the insights gained from the Stage 1 pilot, Stage 2 expands into an advanced, public-facing clinical program intended to capture wider regional market share.</p>
+
+            <h3>📊 Operational Blueprint</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Specifications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Course Topic</strong></td>
+                        <td><strong>Advanced Clinical Mental Health and Neuro-Intervention Programme (Drafted, to be confirmed)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hosting Entity</strong></td>
+                        <td>The GBA Family Medicine Accreditation and Research Center (Shenzhen) (GBA-FM-ARC)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Target Audience</strong></td>
+                        <td><strong>Open to the General Public</strong> (Psychiatrists, GPs, Pediatricians, and Healthcare Professionals)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cohort Size</strong></td>
+                        <td>Scaled to 50+ participants per session</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Timeline</strong></td>
+                        <td>Expected Launch: <strong>November 2026</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course Duration</strong></td>
+                        <td>1-Day Advanced Clinical Training</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🗺️ Flexible Collaboration Tracks</h3>
+            <p>To accommodate diverse regional regulatory frameworks, the center will offer two distinct participation tracks:</p>
+            <ul>
+                <li><strong>Option A (Mainland China Exclusive Tour):</strong> A dedicated, closed 1-day public cohort hosted at a premium venue within Mainland China.</li>
+                <li><strong>Option B (Hong Kong Hub Referral):</strong> Full program execution managed directly at the Hong Kong core campus, with our team acting as the primary mainland marketing and recruitment pipeline on a commission/referral basis.</li>
+            </ul>
+
+            <h3>💳 Investment Structure</h3>
+            <p>
+                <strong>Standard Public Rate:</strong> 
+                <span class="price-highlight">RMB 2,000 per participant</span>
+                <span class="price-status">(to be discussed)</span>
+            </p>
+
+            <h3>🏅 High-Tier Certification & Program Deliverables</h3>
+            <p>Graduates will receive a Certificate of Completion issued jointly by all hosting entities, including but not limited to Stanford University, The Hong Kong Mental Wellness Association, The Alpha Wellbeing Centre and GBA-FM-ARC. This certification validates the participant's competency in cutting-edge neuro-psychiatric interventions and provides formal academic curriculum recognition based on frameworks established by Stanford University. Additionally, participating medical professionals will gain access to an exclusive alumni network for ongoing clinical case discussions and cross-border medical referrals.</p>
+        </section>
+        
+        <div class="footer-actions">
+            <button class="btn btn-secondary" onclick="window.print()">Print / Export PDF</button>
+        </div>
+    </div>
+
+    <div id="content-zh" style="display: none;">
+        <header>
+            <span class="subtitle">战略方案</span>
+            <h1>心理健康培训计划 (2026)</h1>
+        </header>
+
+        <section>
+            <h2>📋 执行摘要</h2>
+            <p>本提案介绍了即将开展的心理健康培训计划的分阶段实施战略。通过将计划分为两个不同的运营阶段，我们在将初期市场风险降至最低的同时，逐步打造一个具有广泛影响力的大型国际化医疗培训项目。</p>
+            <ul>
+                <li><strong>第一阶段（市场测试）：</strong> 聚焦GOLD社区的内部精准发布，旨在验证运营机制及本地市场反馈。</li>
+                <li><strong>第二阶段（国际影响力）：</strong> 面向公众的大型医疗培训项目，依托大湾区双机构的权威声誉。</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section class="tabs-container">
+            <h2>👥 关于我们</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">点击下方标签页查看背景介绍及核心业务：</p>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'gbah-zh', 'zh')">大湾区医疗集团 (GBAH)</button>
+                <button class="tab-btn" onclick="openTab(event, 'arc-zh', 'zh')">深圳市粤港澳大湾区联合家庭医学评审评价研究中心 (GBA-FM-ARC)</button>
+            </div>
+
+            <div id="gbah-zh" class="tab-content zh-tab-content active">
+                <p>大湾区医疗集团（GBAH）成立于2014年，是周大福企业有限公司旗下的一家以使命为驱动、以价值为基础的领先医疗机构。作为大湾区公私营合作（PPP）医疗服务的先驱，GBAH在顶尖公立医院内运营着超过270家诊所 and 医疗服务中心组成的庞大网络。</p>
+                
+                <h3>🛠️ 核心业务板块</h3>
+                <div class="business-grid">
+                    <div class="business-card">
+                        <strong>国际基层医疗培训</strong>
+                        向超过4,000名GOLD™认证的家庭医生和护士网络提供国际标准的基层医疗服务体系培训和认证。
+                    </div>
+                    <div class="business-card">
+                        <strong>跨境医疗险直付结算</strong>
+                        与十余家头部领先保险机构（如友邦保险、安盛保险等）深度合作，推行跨境门诊保险服务。
+                    </div>
+                    <div class="business-card">
+                        <strong>高净值人群健康管家</strong>
+                        打通“基层首诊+专科转诊”闭环，为高净值人群提供港式特色医疗和全方位的健康险定制服务。
+                    </div>
+                </div>
+
+                <a href="https://www.gbahealthcare.com.hk/" target="_blank" class="website-link">🌐 访问官方网站 (GBAH) →</a>
+            </div>
+
+            <div id="arc-zh" class="tab-content zh-tab-content">
+                <p><strong>深圳市粤港澳大湾区联合家庭医学评审评价研究中心 (GBA-FM-ARC)</strong> 是一家在深圳市民政局正式注册的非营利性社会组织（NPO），由深圳市卫生健康委员会直接进行业务主管。作为连接跨境规则的突破性基础设施，它是内地首个在理事会中正式引入多名香港医疗专家的NPO组织。</p>
+                
+                <h3>🛠️ 核心业务板块</h3>
+                <div class="business-grid">
+                    <div class="business-card">
+                        <strong>家庭医学标准研究</strong>
+                        对标国际通行规则，编制并推广具有湾区经验的国际家庭医学及基层社康服务质量认证标准。
+                    </div>
+                    <div class="business-card">
+                        <strong>医疗质量评审评价</strong>
+                        为各大基层医疗机构提供标准化服务质量评审、能力评价、以及临床服务质量体系优化咨询。
+                    </div>
+                    <div class="business-card">
+                        <strong>国际学术交流合作</strong>
+                        联合世界家庭医生组织（WONCA）和国际医疗质量协会（ISQua）推动临床医学学术交流。
+                    </div>
+                </div>
+
+                <div class="gov-endorsements">
+                    <strong>👑 高级别政府背景与背书：</strong><br>
+                    该中心的成立得到了深港两地多家核心政府及监管机构的广泛支持与正式背书：
+                    <ul>
+                        <li>中央人民政府驻香港特别行政区联络办公室</li>
+                        <li>广东省卫生健康委员会</li>
+                        <li>广东省发展和改革委员会</li>
+                        <li>深圳市卫生健康委员会</li>
+                        <li>深圳市宝安区卫生健康局</li>
+                        <li>深圳市前海管理局</li>
+                    </ul>
+                </div>
+                <a href="https://www.fm-arc.com/index-1.html#" target="_blank" class="website-link">🌐 访问官方网站 (GBA-FM-ARC) →</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🚀 第一阶段：“市场测试”计划</h2>
+            <p>这一初始阶段作为受控的试点项目，旨在建立运营基准，收集直接的社区反馈，并测试本地化交付模式。</p>
+
+            <h3>📊 运营蓝图</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>参数</th>
+                        <th>规格详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>课程主题</strong></td>
+                        <td>情绪健康先锋守门人培训工作坊</td>
+                    </tr>
+                    <tr>
+                        <td><strong>主办单位</strong></td>
+                        <td>大湾区医疗集团 (GBAH)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>目标受众</strong></td>
+                        <td><strong>内部闭门</strong> – 仅限内部GOLD社区成员</td>
+                    </tr>
+                    <tr>
+                        <td><strong>培训规模</strong></td>
+                        <td>限制为20名学员，以优化互动和教学效果</td>
+                    </tr>
+                    <tr>
+                        <td><strong>计划时间</strong></td>
+                        <td>预计推出：<strong>2026年7月 / 8月</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>课程时长</strong></td>
+                        <td>1天强化工作坊</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>📍 场地详情</h3>
+            <p>试点阶段将完全在我们的企业总部现场举办：</p>
+            <div class="location-box">
+                <strong>大湾区医疗集团深圳总部</strong><br>
+                中国广东省深圳市福田区金田路2030号卓越世纪中心1栋57楼5702-03室
+            </div>
+
+            <h3>💳 费用结构</h3>
+            <p>
+                <strong>统一费用：</strong> 
+                <span class="price-highlight">待讨论</span>
+            </p>
+
+            <h3>🏅 认证与认可</h3>
+            <div class="badge-box">
+                <ul>
+                    <li><strong>认证权威：</strong> 由香港情绪健康学会 (Mental Wellness Association) 与恩德贤医务中心直接颁发官方能力证书。</li>
+                    <li><strong>先锋称号：</strong> 毕业生还将获得专属的实体“先锋徽章”，象征其在GOLD网络中获得认证的情绪健康守门人地位。</li>
+                </ul>
+            </div>
+            <p style="font-style: italic; color: var(--text-muted);">🔄 <strong>可扩展性条款：</strong> 在该试点小组成功完成培训并获得正面反馈评估后，此框架旨在本财年内复制并推广至多个连续的培训批次。</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🌐 第二阶段：提升国际影响力</h2>
+            <p>依托第一阶段试点获得的经验，第二阶段将扩展为面向公众的高级临床项目，旨在针对更广泛的区域市场份额进行获取。</p>
+
+            <h3>📊 运营蓝图</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>参数</th>
+                        <th>规格详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>课程主题</strong></td>
+                        <td><strong>高级临床心理健康与神经干预课程（拟定，待确认）</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>主办单位</strong></td>
+                        <td>深圳市粤港澳大湾区联合家庭医学评审评价研究中心 (GBA-FM-ARC)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>目标受众</strong></td>
+                        <td><strong>面向公众开放</strong>（精神科医生、全科医生、儿科医生及其他医疗保健专业人员）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>培训规模</strong></td>
+                        <td>扩大至每期50名以上参与者</td>
+                    </tr>
+                    <tr>
+                        <td><strong>计划时间</strong></td>
+                        <td>预计推出：<strong>2026年11月</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>课程时长</strong></td>
+                        <td>1天高级临床培训</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🗺️ 灵活的合作路径</h3>
+            <p>为适应不同地区的监管框架，中心将提供两种不同的参与路径：</p>
+            <ul>
+                <li><strong>选项 A（内地专场）：</strong> 在粤港澳大湾区核心城市（优选深圳市）举办的1天互动工作坊。</li>
+                <li><strong>选项 B（香港转介）：</strong> 培训项目由香港举办方直接管理和执行，我们团队作为内地主要的营销和招募渠道，以收取佣金/转介费的模式合作。</li>
+            </ul>
+
+            <h3>💳 费用结构</h3>
+            <p>
+                <strong>标准公众费用：</strong> 
+                <span class="price-highlight">人民币 2,000元 / 每人</span>
+                <span class="price-status">(待讨论)</span>
+            </p>
+
+            <h3>🏅 高级别认证与项目交付成果</h3>
+            <p>毕业生将获得由所有主办实体联合颁发的结业证书，包括但不限于斯坦福大学、香港情绪健康学会、恩德贤医务中心以及深圳市粤港澳大湾区联合家庭医学评审评价研究中心（GBA-FM-ARC）。此认证验证了参与者在尖端神经精神干预方面的胜任能力，并提供了基于斯坦福大学所建立框架的正式学术课程认可。此外，参与的医疗专业人员将获准加入专属社群网络，以进行持续的临床病例讨论和跨境医疗转介。</p>
+        </section>
+
+        <div class="footer-actions">
+            <button class="btn btn-secondary" onclick="window.print()">打印 / 导出 PDF</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Tab switching logic based on current language
+    function openTab(evt, tabName, lang) {
+        var i, tabcontent, tablinks;
+        
+        // Hide all tab contents for the specific language
+        tabcontent = document.getElementsByClassName(lang + "-tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        
+        // Remove active class from buttons
+        tablinks = evt.currentTarget.parentElement.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        
+        // Show specific tab
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+
+    // Language toggle logic
+    function toggleLanguage() {
+        var enContent = document.getElementById('content-en');
+        var zhContent = document.getElementById('content-zh');
+        var langBtn = document.getElementById('lang-toggle-btn');
+        
+        if (enContent.style.display !== 'none') {
+            // Switch to Chinese
+            enContent.style.display = 'none';
+            zhContent.style.display = 'block';
+            langBtn.innerHTML = '🌐 English Version';
+        } else {
+            // Switch to English
+            enContent.style.display = 'block';
+            zhContent.style.display = 'none';
+            langBtn.innerHTML = '🌐 中文版';
+        }
+    }
+</script>
+
+</body>
+</html>
